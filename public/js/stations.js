@@ -70,6 +70,20 @@ $(window).ready(async () => {
       ? '<p>Temperatura: ' + extended_aqi.data.iaqi.t.v + ' °C</p>'
       : '';
 
+    const data = new Date(extended_aqi.data.time.iso);
+    const date =
+    (data.getDate() < 10
+    ? '0' + (data.getDate())
+    : data.getDate()) +
+      '/' +
+      (data.getMonth() + 1 < 10
+        ? '0' + (data.getMonth() + 1)
+        : data.getMonth() + 1) +
+      '/' +
+      data.getFullYear() +
+      ' ' +
+      data.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+
     const values = iaqi_t + iaqi_h + iaqi_no2 + iaqi_o3 + iaqi_pm10 + iaqi_pm25;
 
     const aqi_color =
@@ -115,7 +129,10 @@ $(window).ready(async () => {
         ' ' +
         aqi_desc +
         '<p>' +
-        values
+        values +
+        '<span class="time">' +
+        date +
+        '</span>'
     );
 
     new mapboxgl.Marker()
