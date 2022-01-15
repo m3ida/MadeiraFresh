@@ -54,7 +54,7 @@ class Publication {
 
   getPublications() {
     return this.dao.all(
-      'SELECT publications.id AS id, users.id AS users_id, name, description, NO2, PM25, PM10, O3, SO2, CO, date FROM publications LEFT JOIN users ON users.id = publications.user_id WHERE validated = 1 ORDER BY date ASC'
+      'SELECT publications.id AS id, users.id AS users_id, name, description, NO2, PM25, PM10, O3, SO2, CO, date FROM publications LEFT JOIN users ON users.id = publications.user_id WHERE validated = 1 ORDER BY date DESC'
     );
   }
 
