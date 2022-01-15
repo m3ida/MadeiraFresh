@@ -30,22 +30,22 @@
           <div class="collapse multi-colapse mt-3 container" id="valoresConcretos">
             <!-- Valores concretos -->
             <label for="ozono">Ozono: </label>
-            <input class="form-control" type="text" name="O3" />
+            <input class="form-control" type="text" name="O3" placeholder="ppm"/>
             <!-- Valores concretos -->
             <label title="Composição de Partículas2.5" for="PM2.5">PM2.5: </label>
-            <input class="form-control" type="text" name="PM25" />
+            <input class="form-control" type="text" name="PM25" placeholder="μg/m3"/>
             <!-- Valores concretos -->
             <label title="Composição de Partículas10" for="PM10">PM10: </label>
-            <input class="form-control" type="text" name="PM10" />
+            <input class="form-control" type="text" name="PM10" placeholder="μg/m3"/>
             <!-- Valores concretos -->
             <label title="Monóxido de Carbono" for="CO">CO: </label>
-            <input class="form-control" type="text" name="CO" />
+            <input class="form-control" type="text" name="CO" placeholder="ppm"/>
             <!-- Valores concretos -->
             <label title="Dióxido de Nitrogénio" for="NO2">NO2: </label>
-            <input class="form-control" type="text" name="NO2" />
+            <input class="form-control" type="text" name="NO2" placeholder="ppb"/>
             <!-- Valores concretos -->
             <label title="Dióxido de Enxofre" for="SO2">SO2: </label>
-            <input class="form-control" type="text" name="SO2" />
+            <input class="form-control" type="text" name="SO2" placeholder="ppb"/>
           </div>
           <div class="row d-flex justify-content-center">
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -101,8 +101,8 @@
         <div class="row">
           <% if (publication.NO2 !== '') {%><p class="col-md-2 valores_pub">NO2: <%= publication.NO2 %> ppb</p><% } %>
           <% if (publication.CO !== '') {%><p class="col-md-2 valores_pub">CO: <%= publication.CO %> ppm</sup></p><% } %>
-          <% if (publication.PM25 !== '') {%><p class="col-md-2 valores_pub">PM2.5: <%= publication.PM25 %> ppm</p><% } %>
-          <% if (publication.PM10 !== '') {%><p class="col-md-2 valores_pub">PM10: <%= publication.PM10 %> ppm</p><% } %>
+          <% if (publication.PM25 !== '') {%><p class="col-md-2 valores_pub">PM2.5: <%= publication.PM25 %> μg/m<sup>3</sup></p><% } %>
+          <% if (publication.PM10 !== '') {%><p class="col-md-2 valores_pub">PM10: <%= publication.PM10 %> μg/m<sup>3</sup></p><% } %>
           <% if (publication.O3 !== '') {%><p class="col-md-2 valores_pub">O3: <%= publication.O3 %> ppm<sup>2</sup></p><% } %>
           <% if (publication.SO2 !== '') {%><p class="col-md-2 valores_pub">SO2: <%= publication.SO2 %> ppb</sup></p> <% } %>
         </div>
