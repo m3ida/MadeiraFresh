@@ -379,6 +379,10 @@ div.row.publication div.comment {
     border-top: 2px dashed black;
 }
 
+div.comment div[class^="col-"] {
+    padding: 0 2px;
+}
+
 .row.toolbar {
     margin-left: 0px;
     padding: 0;
@@ -390,8 +394,8 @@ div.row.publication div.comment {
 }
 
 
-.flex-row.comment {
-    margin-left: 0px;
+.row.comment {
+    margin: 0px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
 }
@@ -413,7 +417,7 @@ div.row.publication div.comment {
     max-width: 20vh;
 }
 
-.row.publication>.d-flex.flex-row.comment {
+.row.publication>.row.comment {
     border-top: 2px dashed black;
 }
 
@@ -430,7 +434,7 @@ div.row.publication div.comment {
     padding: 0;
 }
 
-.flex-row.comment button[type=submit] {
+.row.comment button[type=submit] {
     height: 100%;
     width: 100%;
     background-color: #ffc107;

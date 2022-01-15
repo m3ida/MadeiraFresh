@@ -117,18 +117,16 @@
     <% if(authenticated) { %>
     <div class="row comment-new">
       <form method="post" action="/newComment?<%= 'pub=' + publication.id %>">
-        <div class="d-flex flex-row justify-content-around comment">
-          <div class="input-group">
-            <div>
+        <div class="row justify-content-around comment">
+            <div class="col-1">
               <p><%= username[0].toUpperCase() + username.slice(1).toLowerCase(); %>:</p>
             </div>
-            <div class="flex-fill">
+            <div class="col-8">
               <textarea required name="comment" class="form-control" placeholder="Escreva um comentário"></textarea>
             </div>
-            <div class="input-group-append flex-fill">
+            <div class="col-md-3">
               <button class="btn btn-primary" type="submit">Comentar</button>
             </div>
-          </div>
         </div>
       </form>
     </div>
