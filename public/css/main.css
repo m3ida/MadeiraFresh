@@ -434,6 +434,10 @@ div.comment div[class^="col-"] {
     padding: 0;
 }
 
+.row.publication .comment-new .comment {
+    padding: 2px 2px;
+}
+
 .row.comment button[type=submit] {
     height: 100%;
     width: 100%;
@@ -531,6 +535,10 @@ div.dropdown.show button:hover {
 
 .publication.row .comment div p:first-of-type {
     margin: 0;
+}
+
+.publication.row .comment div:last-of-type {
+    padding: 0 5px;
 }
 
 #stations-container {

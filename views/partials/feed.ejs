@@ -118,13 +118,13 @@
     <div class="row comment-new">
       <form method="post" action="/newComment?<%= 'pub=' + publication.id %>">
         <div class="row justify-content-around comment">
-            <div class="col-1">
+            <div class="pl-2 col-1">
               <p><%= username[0].toUpperCase() + username.slice(1).toLowerCase(); %>:</p>
             </div>
             <div class="col-8">
               <textarea required name="comment" class="form-control" placeholder="Escreva um comentário"></textarea>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3">
               <button class="btn btn-primary" type="submit">Comentar</button>
             </div>
         </div>
@@ -140,7 +140,7 @@
       <div class="comment">
         <div class="row">
           <div class="nome_pub">
-          <p><%= comment.name %>:</p>
+          <p><%= comment.name[0].toUpperCase() +  comment.name.slice(1).toLowerCase(); %>:</p>
           </div>
         </div>
         <div class="row">
