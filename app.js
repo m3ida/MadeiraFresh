@@ -258,6 +258,7 @@ app.post('/nova-publicacao', (req, res) => {
           req.body.lng,
           req.body.lat,
           req.body.NO2,
+          req.body.CO,
           req.body.PM25,
           req.body.PM10,
           req.body.O3,

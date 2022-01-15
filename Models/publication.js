@@ -12,6 +12,7 @@ class Publication {
         lat FLOAT NOT NULL,
         date DATETIME NOT NULL,
         NO2 FLOAT,
+        CO FLOAT,
         PM25 FLOAT,
         PM10 FLOAT,
         O3 FLOAT,
@@ -22,9 +23,9 @@ class Publication {
     return this.dao.query(sql);
   }
 
-  create(description, lg, lat, NO2, PM25, PM10, O3, SO2, user_id) {
+  create(description, lg, lat, NO2, CO, PM25, PM10, O3, SO2, user_id) {
     return this.dao.query(
-      'INSERT INTO publications (description, validated, lg, lat, date, NO2, PM25, PM10, O3, SO2, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
+      'INSERT INTO publications (description, validated, lg, lat, date, NO2, CO, PM25, PM10, O3, SO2, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
       [
         description,
         0,
@@ -32,6 +33,7 @@ class Publication {
         lat,
         Date().toLocaleString(),
         NO2,
+        CO,
         PM25,
         PM10,
         O3,
@@ -52,7 +54,7 @@ class Publication {
 
   getPublications() {
     return this.dao.all(
-      'SELECT publications.id AS id, users.id AS users_id, name, description, NO2, PM25, PM10, O3, SO2, date FROM publications LEFT JOIN users ON users.id = publications.user_id WHERE validated = 1 ORDER BY date ASC'
+      'SELECT publications.id AS id, users.id AS users_id, name, description, NO2, PM25, PM10, O3, SO2, CO, date FROM publications LEFT JOIN users ON users.id = publications.user_id WHERE validated = 1 ORDER BY date ASC'
     );
   }
 

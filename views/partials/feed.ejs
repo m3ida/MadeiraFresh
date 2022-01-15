@@ -90,19 +90,21 @@
       <% if((data_atual.getMonth() - pub_date.getMonth()) > 0  || (data_atual.getYear() - pub_date.getYear()) > 0 ){ %>
       <%    mensagem = "Publicada em " + pub_date.getDate() + "/" + (pub_date.getMonth() + 1) + "/" + pub_date.getFullYear(); %>
       <% } else if (data_atual.getDay() - pub_date.getDay() > 0){ %>
-      <%   mensagem = "Publicada há " + (data_atual.getDay() - pub_date.getDay()) + " dias"; %>
+      <%   mensagem = "Publicada há " + (data_atual.getDay() - pub_date.getDay()) + " dia"; %>
+      <%   if((data_atual.getDay() - pub_date.getDay() > 1)) mensagem += 's';%>
       <% } else{%>
       <% mensagem = "Publicada às " + pub_date.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }); %>
       <% } %>
 
-      <% if((publication.NO2 !== '') || (publication.PM25 !== '') || (publication.PM10 !== '') || (publication.O3 !== '') || (publication.SO2 !== '')){%>
-      <div class="col-6">
+      <% if((publication.NO2 !== '') || (publication.PM25 !== '') || (publication.PM10 !== '') || (publication.O3 !== '') || (publication.SO2 !== '') || (publication.CO !== '')){%>
+      <div class="col-8">
         <div class="row">
-          <% if (publication.NO2 !== '') {%><p class="col-2 valores_pub">NO2: <%= publication.NO2 %></p><% } %>
-          <% if (publication.PM25 !== '') {%><p class="col-2 valores_pub">PM2.5: <%= publication.PM25 %></p><% } %>
-          <% if (publication.PM10 !== '') {%><p class="col-2 valores_pub">PM10: <%= publication.PM10 %></p><% } %>
-          <% if (publication.O3 !== '') {%><p class="col-2 valores_pub">O3: <%= publication.O3 %></p><% } %>
-          <% if (publication.SO2 !== '') {%><p class="col-2 valores_pub">SO2: <%= publication.SO2 %></p><% } %>
+          <% if (publication.NO2 !== '') {%><p class="col-md-2 valores_pub">NO2: <%= publication.NO2 %></p><% } %>
+          <% if (publication.CO !== '') {%><p class="col-md-2 valores_pub">CO: <%= publication.CO %></p><% } %>
+          <% if (publication.PM25 !== '') {%><p class="col-md-2 valores_pub">PM2.5: <%= publication.PM25 %></p><% } %>
+          <% if (publication.PM10 !== '') {%><p class="col-md-2 valores_pub">PM10: <%= publication.PM10 %></p><% } %>
+          <% if (publication.O3 !== '') {%><p class="col-md-2 valores_pub">O3: <%= publication.O3 %></p><% } %>
+          <% if (publication.SO2 !== '') {%><p class="col-md-2 valores_pub">SO2: <%= publication.SO2 %></p><% } %>
 
         </div>
       </div>
@@ -144,7 +146,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-10 align-self-start">
+          <div class="col-9 align-self-start">
             <div class="flex-fill">
               <p><%= comment.comment %></p>
             </div>
@@ -157,22 +159,21 @@
           <% if((data_atual.getMonth() - comment_date.getMonth()) > 0  || (data_atual.getYear() - comment_date.getYear()) > 0 ){ %>
           <%    mensagem = "Publicada em " + comment_date.getDate() + "/" + (comment_date.getMonth() + 1) + "/" + comment_date.getFullYear(); %>
           <% } else if (data_atual.getDay() - comment_date.getDay() > 0){ %>
-          <%   mensagem = "Publicada há " + (data_atual.getDay() - comment_date.getDay()) + " dias"; %>
+          <%   mensagem = "Publicada há " + (data_atual.getDay() - comment_date.getDay()) + " dia"; %>
+          <%   if((data_atual.getDay() - comment_date.getDay() > 1)) mensagem += 's';%>
           <% } else{ %>
           <% mensagem = comment_date.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }) %>
           <% } %>
 
-          <div class="col-2 align-self-end">
-            <div class="date">
-              <p><%= mensagem %></p>
-            </div>
+          <div class="col-3 align-self-end">
+              <p class="date"><%= mensagem %></p>
           </div>
         </div>
       </div>
       <% }) %>
       <% if(publication.comments.length >= 2) { %>
     </div>
-    <button class="btn btn-primary" data-toggle="collapse" href="#moreComments-<%= publication.id %>" role="button"
+    <button class="btn btn-primary collapsed" data-toggle="collapse" href="#moreComments-<%= publication.id %>" role="button"
       aria-expanded="false" aria-controls="moreComments-<%= publication.id %>">
     </button>
     <% } %>
