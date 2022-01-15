@@ -1,0 +1,27 @@
+<form class="container-fluid" action="/login" method="POST">
+  <div class="row">
+    <div class="input-field">
+      <div class="col-2">
+        <label for="email"><span>Email:</span></label>
+      </div>
+      <div class="col-12">
+      <input type="text" placeholder="Enter Email" name="email" class="form-control validate" required>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field">
+      <div class="col-2">
+        <label for="password"><span>Password:</span></label>
+      </div>
+      <div class="col-12">
+        <input type="password" placeholder="Enter Password" name="password" class="form-control validate" required>
+      </div>  
+    </div>
+  </div>
+  <div class="row center-align">
+    <span class="error"><%= authErrorType === 'login' ? authError : '' %></span>
+    <button class="btn btn-primary" type="submit">Login</button>
+  </div>
+</form>
+

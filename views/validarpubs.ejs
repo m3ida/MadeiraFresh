@@ -1,0 +1,106 @@
+<%- include('./partials/header.ejs') %>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107">
+            <!-- Container wrapper -->
+            <div class="container-fluid" style="background-color: #ffc107">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a href="/" class="navbar-collapse">
+                        <img src="./img/logo.png" height="auto" width="100" alt="MadeiraFreshLogo" loading="lazy">
+                    </a>
+                    <!-- Left links -->
+                </div>
+                <!-- Right elements -->
+                <div class="d-flex align-items-center">
+                    <!-- Avatar -->
+                    <form action="/logout" method="post">
+                        <input class="btn btn-secondary" type="submit" value="Logout" />
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <% if(publications.length > 0) {%>
+            <div class="container text-center align-self-center">
+                <div class="row">
+                    <div class="col-2 valpub header">
+                        <h4>Username</h4>
+                    </div>
+                    <div class="col-4 valpub header">
+                        <h4>Descrição da publicação:</h4>
+                    </div>
+                    <div class="col-4 valpub header">
+                        <h4>Localização</h4>
+                    </div>
+                    <div class="col-1 valpub header">
+                        <h4>Validar</h4>
+                    </div>
+                    <div class="col-1 valpub header">
+                        <h4>Remover</h4>
+                    </div>
+                </div>
+                <form action="/validarpublicacoes" method="post">
+                    <!-- Loop -->
+                    <% publications.forEach(publication => { %>
+
+
+                        <div class="row" id="<%= publication.id %>">
+                            <div class="col-2 valpub">
+                                <p>
+                                    <%= publication.name %>
+                                </p>
+                            </div>
+                            <div class="col-4 valpub">
+                                <p>
+                                    <%= publication.description %>
+                                </p>
+                            </div>
+                            <div class="col-4 valpub">
+                                <p class="coords">
+                                    <%= publication.lg + "," + publication.lat %>
+                                </p>
+                            </div>
+                            <div class="col-1 valpub val">
+                                <input name="<%= 'val-' + publication.id %>" type="checkbox">
+                            </div>
+                            <div class="col-1 valpub del">
+                                <input name="<%= 'del-' + publication.id %>" type="checkbox">
+                            </div>
+                        </div>
+
+                        <% }) %>
+            </div>
+            <% } else { %>
+
+                <div class="container text-center align-self-center feed">
+                    <h2>
+                        Não existem publicações a validar.
+                    </h2>
+                </div>
+
+
+                <% } %>
+                    <div class="row mt-3" style="width: 100%;">
+                        <div class="col-6 text-center">
+                            <a href="/" class="btn btn-primary btn-lg">
+        Voltar Atrás
+      </a>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg" id="modAction">
+        Submeter
+      </button>
+                        </div>
+                    </div>
+    </body>
+    <script src="./js/validator.js"></script>
+
+    </html>

@@ -1,0 +1,182 @@
+<% if(authenticated) { %>
+<div class="container align-self-center feed" style="margin-bottom: 3rem">
+
+  <!-- form novo publicacao -->
+  <div class="row">
+    <form action="/nova-publicacao" method="post" id="newpub">
+      <div class="row">
+        <div class="col justify-content-center text-center">
+          <h4>Crie uma publicação</h4>
+        </div>
+        <div class="col justify-content-center text-center">
+          <h4>Selecione uma localização</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 criar_publi">
+          <div class="wrapper">
+            <textarea class="form-control" rows="4" cols="200" name="msg"
+              placeholder="Insira a sua avaliação qualitativa" maxlength="256" required></textarea>
+            <input class="form-control" type="hidden" name="lat" />
+            <input class="form-control" type="hidden" name="lng" />
+            <span><%= addError %></span>
+          </div>
+          <p class="d-flex justify-content-center">
+            <a class="btn btn-warning" data-toggle="collapse" href="#valoresConcretos" role="button"
+              aria-expanded="false" aria-controls="collapseExample">
+              Tenho valores a inserir
+            </a>
+          </p>
+          <div class="collapse multi-colapse mt-3 container" id="valoresConcretos">
+            <!-- Valores concretos -->
+            <label for="ozono">Ozono: </label>
+            <input class="form-control" type="text" name="O3" />
+            <!-- Valores concretos -->
+            <label title="Composição de Partículas2.5" for="PM2.5">PM2.5: </label>
+            <input class="form-control" type="text" name="PM25" />
+            <!-- Valores concretos -->
+            <label title="Composição de Partículas10" for="PM10">PM10: </label>
+            <input class="form-control" type="text" name="PM10" />
+            <!-- Valores concretos -->
+            <label title="Monóxido de Carbono" for="CO">CO: </label>
+            <input class="form-control" type="text" name="CO" />
+            <!-- Valores concretos -->
+            <label title="Dióxido de Nitrogénio" for="NO2">NO2: </label>
+            <input class="form-control" type="text" name="NO2" />
+            <!-- Valores concretos -->
+            <label title="Dióxido de Enxofre" for="SO2">SO2: </label>
+            <input class="form-control" type="text" name="SO2" />
+          </div>
+          <div class="row d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+        <div class="col-md-6 criar_publi map-wrapper">
+          <div id="new_map"><i class="fas fa-map-marker-alt"></i></div>
+          <pre id="coordinates" class="coordinates"></pre>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+<% } %>
+<div class="container align-self-center feed">
+  <div class="row h2">
+    <h2 class="text-center">Publicações</h2>
+  </div>
+  <div class="col">
+    <div id="mapMain" class="row"></div>
+  </div>
+  <% publications.forEach(publication => { %>
+  <div class="publication row up-down" id="<%= 'pub' + publication.id %>">
+    <div class="row pub">
+      <span class="titulo">
+        <h4>
+          Publicado por <%= publication.name %>
+        </h4>
+      </span>
+    </div>
+    <div class="row content">
+      <span class="content_description">
+        <%= publication.description %>
+      </span>
+    </div>
+    <div class="row toolbar">
+
+      <% let pub_date = new Date(publication.date); %>
+      <% let mensagem = ""; %>
+      <% let data_atual = new Date();%>
+      <% if((data_atual.getMonth() - pub_date.getMonth()) > 0  || (data_atual.getYear() - pub_date.getYear()) > 0 ){ %>
+      <%    mensagem = "Publicada em " + pub_date.getDate() + "/" + (pub_date.getMonth() + 1) + "/" + pub_date.getFullYear(); %>
+      <% } else if (data_atual.getDay() - pub_date.getDay() > 0){ %>
+      <%   mensagem = "Publicada há " + (data_atual.getDay() - pub_date.getDay()) + " dias"; %>
+      <% } else{%>
+      <% mensagem = "Publicada às " + pub_date.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }); %>
+      <% } %>
+
+      <% if((publication.NO2 !== '') || (publication.PM25 !== '') || (publication.PM10 !== '') || (publication.O3 !== '') || (publication.SO2 !== '')){%>
+      <div class="col-6">
+        <div class="row">
+          <% if (publication.NO2 !== '') {%><p class="col-2 valores_pub">NO2: <%= publication.NO2 %></p><% } %>
+          <% if (publication.PM25 !== '') {%><p class="col-2 valores_pub">PM2.5: <%= publication.PM25 %></p><% } %>
+          <% if (publication.PM10 !== '') {%><p class="col-2 valores_pub">PM10: <%= publication.PM10 %></p><% } %>
+          <% if (publication.O3 !== '') {%><p class="col-2 valores_pub">O3: <%= publication.O3 %></p><% } %>
+          <% if (publication.SO2 !== '') {%><p class="col-2 valores_pub">SO2: <%= publication.SO2 %></p><% } %>
+
+        </div>
+      </div>
+
+      <% } %>
+      <div class="col">
+        <p class="date"><%= mensagem %></p>
+      </div>
+    </div>
+    <% if(authenticated) { %>
+    <div class="row comment-new">
+      <form method="post" action="/newComment?<%= 'pub=' + publication.id %>">
+        <div class="d-flex flex-row justify-content-around comment">
+          <div class="input-group">
+            <div>
+              <p><%= username[0].toUpperCase() + username.slice(1).toLowerCase(); %>:</p>
+            </div>
+            <div class="flex-fill">
+              <textarea required name="comment" class="form-control" placeholder="Escreva um comentário"></textarea>
+            </div>
+            <div class="input-group-append flex-fill">
+              <button class="btn btn-primary" type="submit">Comentar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <% } %>
+    <% if(publication.comments) { %>
+    <% publication.comments.forEach(comment => { %>
+
+    <% if(publication.comments.indexOf(comment) === 2) { %>
+    <div class="collapse" id="moreComments-<%= publication.id %>">
+      <% } %>
+      <div class="comment">
+        <div class="row">
+          <div class="nome_pub">
+          <p><%= comment.name %>:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-10 align-self-start">
+            <div class="flex-fill">
+              <p><%= comment.comment %></p>
+            </div>
+          </div>
+
+
+          <% let comment_date = new Date(comment.date_created); %>
+          <% let mensagem = ""; %>
+          <% let data_atual = new Date(); %>
+          <% if((data_atual.getMonth() - comment_date.getMonth()) > 0  || (data_atual.getYear() - comment_date.getYear()) > 0 ){ %>
+          <%    mensagem = "Publicada em " + comment_date.getDate() + "/" + (comment_date.getMonth() + 1) + "/" + comment_date.getFullYear(); %>
+          <% } else if (data_atual.getDay() - comment_date.getDay() > 0){ %>
+          <%   mensagem = "Publicada há " + (data_atual.getDay() - comment_date.getDay()) + " dias"; %>
+          <% } else{ %>
+          <% mensagem = comment_date.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }) %>
+          <% } %>
+
+          <div class="col-2 align-self-end">
+            <div class="date">
+              <p><%= mensagem %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+      <% if(publication.comments.length >= 2) { %>
+    </div>
+    <button class="btn btn-primary" data-toggle="collapse" href="#moreComments-<%= publication.id %>" role="button"
+      aria-expanded="false" aria-controls="moreComments-<%= publication.id %>">
+    </button>
+    <% } %>
+    <% } %>
+  </div>
+  <%});%>
+</div>

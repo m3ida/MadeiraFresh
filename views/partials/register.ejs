@@ -1,0 +1,70 @@
+<form class="container-fluid" action="/register" method="POST">
+  <div class="row">
+    <div class="input-field">
+      <div class="col-2">
+        <label for="nickname">Nickname:</label>
+      </div>
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Nickname"
+          name="nickname"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field">
+      <div class="col-2">
+        <label for="email">Email:</label>
+      </div>
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Email"
+          name="email"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field">
+      <div class="col-2">
+        <label for="password">Password:</label>
+      </div>
+      <div class="col-12">
+        <input
+          type="password"
+          placeholder="Enter Password"
+          class="form-control"
+          name="password"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field">
+      <div class="col-2">
+        <label for="password">Confirm Password:</label>
+      </div>
+      <div class="col-12">
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          class="form-control"
+          name="password_confirmation"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row center-align">
+    <span class="error"><%= authErrorType === 'register' ? authError : '' %></span>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </div>
+</form>
