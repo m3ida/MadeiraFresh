@@ -100,11 +100,11 @@
       <div class="col-8">
         <div class="row">
           <% if (publication.NO2 !== '') {%><p class="col-md-2 valores_pub">NO2: <%= publication.NO2 %> ppb</p><% } %>
-          <% if (publication.CO !== '') {%><p class="col-md-2 valores_pub">CO: <%= publication.CO %> mg/m<sup>2</sup></p><% } %>
+          <% if (publication.CO !== '') {%><p class="col-md-2 valores_pub">CO: <%= publication.CO %> ppm</sup></p><% } %>
           <% if (publication.PM25 !== '') {%><p class="col-md-2 valores_pub">PM2.5: <%= publication.PM25 %> ppm</p><% } %>
           <% if (publication.PM10 !== '') {%><p class="col-md-2 valores_pub">PM10: <%= publication.PM10 %> ppm</p><% } %>
-          <% if (publication.O3 !== '') {%><p class="col-md-2 valores_pub">O3: <%= publication.O3 %> mg/m<sup>2</sup></p><% } %>
-          <% if (publication.SO2 !== '') {%><p class="col-md-2 valores_pub">SO2: <%= publication.SO2 %> mg/m<sup>2</sup></p> <% } %>
+          <% if (publication.O3 !== '') {%><p class="col-md-2 valores_pub">O3: <%= publication.O3 %> ppm<sup>2</sup></p><% } %>
+          <% if (publication.SO2 !== '') {%><p class="col-md-2 valores_pub">SO2: <%= publication.SO2 %> ppb</sup></p> <% } %>
 
         </div>
       </div>
