@@ -88,12 +88,12 @@
       <% let mensagem = ""; %>
       <% let data_atual = new Date();%>
       <% if((data_atual.getMonth() - pub_date.getMonth()) > 0  || (data_atual.getYear() - pub_date.getYear()) > 0 ){ %>
-      <%    mensagem = "Publicada em " + pub_date.getDate() + "/" + (pub_date.getMonth() + 1) + "/" + pub_date.getFullYear(); %>
+      <%    mensagem = pub_date.getDate() + "/" + (pub_date.getMonth() + 1) + "/" + pub_date.getFullYear(); %>
       <% } else if (data_atual.getDay() - pub_date.getDay() > 0){ %>
-      <%   mensagem = "Publicada há " + (data_atual.getDay() - pub_date.getDay()) + " dia"; %>
+      <%   mensagem = "Há " + (data_atual.getDay() - pub_date.getDay()) + " dia"; %>
       <%   if((data_atual.getDay() - pub_date.getDay() > 1)) mensagem += 's';%>
       <% } else{%>
-      <% mensagem = "Publicada às " + pub_date.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }); %>
+      <% mensagem = pub_date.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }); %>
       <% } %>
 
       <% if((publication.NO2 !== '') || (publication.PM25 !== '') || (publication.PM10 !== '') || (publication.O3 !== '') || (publication.SO2 !== '') || (publication.CO !== '')){%>
@@ -155,9 +155,9 @@
           <% let mensagem = ""; %>
           <% let data_atual = new Date(); %>
           <% if((data_atual.getMonth() - comment_date.getMonth()) > 0  || (data_atual.getYear() - comment_date.getYear()) > 0 ){ %>
-          <%    mensagem = "Publicada em " + comment_date.getDate() + "/" + (comment_date.getMonth() + 1) + "/" + comment_date.getFullYear(); %>
+          <%    mensagem = comment_date.getDate() + "/" + (comment_date.getMonth() + 1) + "/" + comment_date.getFullYear(); %>
           <% } else if (data_atual.getDay() - comment_date.getDay() > 0){ %>
-          <%   mensagem = "Publicada há " + (data_atual.getDay() - comment_date.getDay()) + " dia"; %>
+          <%   mensagem = "Há " + (data_atual.getDay() - comment_date.getDay()) + " dia"; %>
           <%   if((data_atual.getDay() - comment_date.getDay() > 1)) mensagem += 's';%>
           <% } else{ %>
           <% mensagem = comment_date.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' }) %>
