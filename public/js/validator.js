@@ -16,7 +16,6 @@ $(window).ready(async () => {
   $('.coords').each(async function () {
     const coords = $(this).text().trim().split(',');
     const localizacao = await local(coords[0], coords[1]);
-    console.log(localizacao);
     $(this).text(
     //   localizacao.features[0].context[1].text +
     //     ', ' +

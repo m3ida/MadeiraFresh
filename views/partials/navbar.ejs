@@ -1,20 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107">
-    <!-- Container wrapper -->
-    <div class="container-fluid" style="background-color: #ffc107">
-      <!-- Toggle button -->
-      
 
-      <!-- Collapsible wrapper -->
-      
-        <!-- Navbar brand -->
+  <div class="container-fluid" style="background-color: #ffc107">
+            
       <a href="/">
         <img src="./img/logo.png" height="auto" width="100" alt="MadeiraFreshLogo" loading="lazy">
       </a>
-        <!-- Left links -->
         
-        <!-- Right elements -->
         <div class="d-flex align-items-center">
-          <!-- Left links -->
+
           <ul class="navbar-nav me-auto mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" style="color: red;" href="/estacoes">Dados ao vivo</a>
@@ -25,7 +18,6 @@
             </li>
             <% } %>
           </ul>
-          <!-- Avatar -->
           <% if(authenticated){ %>
             <form action="/logout" method="post">
               <input class="btn btn-secondary" type="submit" value="Logout"/>

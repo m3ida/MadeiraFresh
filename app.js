@@ -195,6 +195,7 @@ app.get('/', async (req, res) => {
         authErrorType: errors[0] || '',
         authError: errors[1] || '',
         userType: req.user ? req.user.type : '',
+        pubSuccess: req.query.success
       });
     });
   });
@@ -242,7 +243,7 @@ app.post('/validarpublicacoes', (req, res) => {
           publications.validatePub(pedido[1]);
         }
       }
-      res.redirect('/validarpublicacoes');
+      res.status(200).redirect('/validarpublicacoes');
     }
   }
 });
@@ -250,7 +251,7 @@ app.post('/validarpublicacoes', (req, res) => {
 app.post('/nova-publicacao', (req, res) => {
   if (req.isAuthenticated()) {
     if (!req.body.msg) {
-      res.redirect('/?addError=true');
+      res.status(406).redirect('/?addError=true');
     } else {
       publications
         .create(
@@ -265,7 +266,7 @@ app.post('/nova-publicacao', (req, res) => {
           req.body.SO2,
           req.user.id
         )
-        .then(() => res.redirect('/'));
+        .then(() => res.status(200).redirect('/?success=true'));
     }
   } else {
     res.status(401).redirect('/');

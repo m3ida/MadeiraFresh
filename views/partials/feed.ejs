@@ -1,7 +1,28 @@
 <% if(authenticated) { %>
+  <% if(pubSuccess || addError) { %>
+  <div class="modal fade show" id="PubSuccess" tabindex="-1" role="dialog" aria-labelledby="PubSuccessTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><%= addError ? 'Erro': 'Publicação em verificação' %></h5>
+        </div>
+        <div class="modal-body">
+          <%= addError ? addError: 'Obrigado pela sua publicação, a mesma será apresentada assim que seja verificada por um moderador.' %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn close" data-dismiss="modal" onclick="window.location='/'">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>$('#PubSuccess').modal('show');</script>
+  <% } %>
+
+
 <div class="container align-self-center feed" style="margin-bottom: 3rem">
 
-  <!-- form novo publicacao -->
   <div class="row">
     <form action="/nova-publicacao" method="post" id="newpub">
       <div class="row">
@@ -19,7 +40,6 @@
               placeholder="Insira a sua avaliação qualitativa" maxlength="256" required></textarea>
             <input class="form-control" type="hidden" name="lat" />
             <input class="form-control" type="hidden" name="lng" />
-            <span><%= addError %></span>
           </div>
           <p class="d-flex justify-content-center">
             <a class="btn btn-warning" data-toggle="collapse" href="#valoresConcretos" role="button"
@@ -28,22 +48,21 @@
             </a>
           </p>
           <div class="collapse multi-colapse mt-3 container" id="valoresConcretos">
-            <!-- Valores concretos -->
             <label for="ozono">Ozono: </label>
             <input class="form-control" type="text" name="O3" placeholder="ppm"/>
-            <!-- Valores concretos -->
+
             <label title="Composição de Partículas2.5" for="PM2.5">PM2.5: </label>
             <input class="form-control" type="text" name="PM25" placeholder="μg/m3"/>
-            <!-- Valores concretos -->
+
             <label title="Composição de Partículas10" for="PM10">PM10: </label>
             <input class="form-control" type="text" name="PM10" placeholder="μg/m3"/>
-            <!-- Valores concretos -->
+
             <label title="Monóxido de Carbono" for="CO">CO: </label>
             <input class="form-control" type="text" name="CO" placeholder="ppm"/>
-            <!-- Valores concretos -->
+
             <label title="Dióxido de Nitrogénio" for="NO2">NO2: </label>
             <input class="form-control" type="text" name="NO2" placeholder="ppb"/>
-            <!-- Valores concretos -->
+
             <label title="Dióxido de Enxofre" for="SO2">SO2: </label>
             <input class="form-control" type="text" name="SO2" placeholder="ppb"/>
           </div>

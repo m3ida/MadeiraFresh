@@ -524,9 +524,21 @@ button[aria-controls^="moreComments-"]:focus {
 
 #dropdownMenuButton,
 #dropdownMenuButton:focus,
-#dropdownMenuButton:hover {
+#dropdownMenuButton:hover,
+form input[value=Logout],
+form input[value=Logout]:focus,
+form input[value=Logout]:hover
+{
     background-color: #2C2E43;
     color: white;
+}
+
+.modal-footer button.btn.close {
+    background-color: #ffc107;
+}
+
+.modal-content {
+    background-color: lightblue;
 }
 
 div.dropdown.show button:hover {

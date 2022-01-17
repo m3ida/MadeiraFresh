@@ -3,24 +3,17 @@
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107">
-            <!-- Container wrapper -->
             <div class="container-fluid" style="background-color: #ffc107">
-                <!-- Toggle button -->
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
 
-                <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Navbar brand -->
                     <a href="/" class="navbar-collapse">
                         <img src="./img/logo.png" height="auto" width="100" alt="MadeiraFreshLogo" loading="lazy">
                     </a>
-                    <!-- Left links -->
                 </div>
-                <!-- Right elements -->
                 <div class="d-flex align-items-center">
-                    <!-- Avatar -->
                     <form action="/logout" method="post">
                         <input class="btn btn-secondary" type="submit" value="Logout" />
                     </form>
@@ -48,7 +41,6 @@
                     </div>
                 </div>
                 <form action="/validarpublicacoes" method="post">
-                    <!-- Loop -->
                     <% publications.forEach(publication => { %>
 
 
