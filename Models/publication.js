@@ -25,7 +25,7 @@ class Publication {
 
   create(description, lg, lat, NO2, CO, PM25, PM10, O3, SO2, user_id) {
     return this.dao.query(
-      'INSERT INTO publications (description, validated, lg, lat, date, NO2, CO, PM25, PM10, O3, SO2, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
+      'INSERT INTO publications (description, validated, lg, lat, date, NO2, CO, PM25, PM10, O3, SO2, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
       [
         description,
         0,
