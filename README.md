@@ -25,6 +25,9 @@ Nome de utilizador: mod@example.com <br>
 Palavra-Passe: password
 
 <---------------------------------Utilizadores-----------------------------------><br>
-Nome de utilizador: member@example.org  | Nome de utilizador: mariaAnita@gmail.com <br>
-Palavra-Passe: password                 | Palavra-Passe: password
+Nome de utilizador: member@example.org <br> 
+Palavra-Passe: password <br>
+-------------------------------<br>
+Nome de utilizador: mariaAnita@gmail.com <br>
+Palavra-Passe: password
 
