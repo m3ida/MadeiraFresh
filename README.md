@@ -16,15 +16,15 @@ Para ler os valores na base de dados é possível abrir este ficheiro com o prog
 
 ## Users Disponíveis
 
-<----------Administradores---------->
-Nome de utilizador: admin@example.com
+<----------Administradores----------><br>
+Nome de utilizador: admin@example.com <br>
 Palavra-Passe: password
 
-<-----------Moderadores----------->
-Nome de utilizador: mod@example.com
+<-----------Moderadores-----------><br>
+Nome de utilizador: mod@example.com <br>
 Palavra-Passe: password
 
-<---------------------------------Utilizadores----------------------------------->
-Nome de utilizador: member@example.org  | Nome de utilizador: mariaAnita@gmail.com
+<---------------------------------Utilizadores-----------------------------------><br>
+Nome de utilizador: member@example.org  | Nome de utilizador: mariaAnita@gmail.com <br>
 Palavra-Passe: password                 | Palavra-Passe: password
 
