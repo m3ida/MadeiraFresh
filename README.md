@@ -12,3 +12,19 @@
 ## Base de dados
 Como base de dados foi utilizado o SQLite. O [ficheiro da base de dados](./main.sqlite3) encontra-se na pasta base.
 Para ler os valores na base de dados é possível abrir este ficheiro com o programa [DB Browser (SQLite)](https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi)
+
+
+## Users Disponíveis
+
+<----------Administradores---------->
+Nome de utilizador: admin@example.com
+Palavra-Passe: password
+
+<-----------Moderadores----------->
+Nome de utilizador: mod@example.com
+Palavra-Passe: password
+
+<---------------------------------Utilizadores----------------------------------->
+Nome de utilizador: member@example.org  | Nome de utilizador: mariaAnita@gmail.com
+Palavra-Passe: password                 | Palavra-Passe: password
+
