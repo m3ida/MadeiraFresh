@@ -66,7 +66,7 @@ class Publication {
 
   getPublicationsIdCoords() {
     return this.dao.all(
-      'SELECT publications.id AS id, lg, lat FROM publications LEFT JOIN users ON users.id = publications.user_id WHERE validated = 1 ORDER BY date ASC'
+      'SELECT publications.id AS id, lg, lat FROM publications LEFT JOIN users ON users.id = publications.user_id WHERE validated = 1 ORDER BY date DESC LIMIT 20'
     );
   }
 
